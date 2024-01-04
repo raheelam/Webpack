@@ -9,7 +9,7 @@ static capitalizeFirstLetter=(str: string) =>{
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-static titleCase=(str:string) =>{
+static makeTitleCase=(str:string) =>{
     return str
       .toLowerCase()
       .split(' ')
