@@ -13,6 +13,10 @@ static startsWith=(inputStr: string, prefix: string): boolean=> {
     return inputStr.startsWith(prefix);
 }
 
+static endsWith=(inputStr: string, suffix: string): boolean=> {
+    return inputStr.endsWith(suffix);
+}
+
 static makeTitleCase=(str:string) =>{
     return str
       .toLowerCase()
