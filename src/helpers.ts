@@ -21,6 +21,10 @@ static countSubstringOccurrences=(mainStr: string, substring: string): number=> 
     return mainStr.split(substring).length - 1;
 }
 
+static removeWhitespace=(inputStr: string): string=> {
+    return inputStr.replace(/\s/g, '');
+}
+
 static makeTitleCase=(str:string) =>{
     return str
       .toLowerCase()
