@@ -25,6 +25,17 @@ static removeWhitespace=(inputStr: string): string=> {
     return inputStr.replace(/\s/g, '');
 }
 
+static limitTextWithDelimiter=(inputText: string, limit: number, delimiter: string): string=> {
+    if (inputText.length <= limit) {
+        // If the text is already within the limit, no changes needed
+        return inputText;
+    } else {
+        // Trim the text to the specified limit and add the delimiter
+        const trimmedText = inputText.substring(0, limit);
+        return trimmedText + delimiter;
+    }
+}
+
 static makeTitleCase=(str:string) =>{
     return str
       .toLowerCase()
