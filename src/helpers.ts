@@ -9,6 +9,10 @@ static capitalizeFirstLetter=(str: string) =>{
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
+static startsWith=(inputStr: string, prefix: string): boolean=> {
+    return inputStr.startsWith(prefix);
+}
+
 static makeTitleCase=(str:string) =>{
     return str
       .toLowerCase()
