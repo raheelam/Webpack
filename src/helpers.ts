@@ -17,6 +17,10 @@ static endsWith=(inputStr: string, suffix: string): boolean=> {
     return inputStr.endsWith(suffix);
 }
 
+static countSubstringOccurrences=(mainStr: string, substring: string): number=> {
+    return mainStr.split(substring).length - 1;
+}
+
 static makeTitleCase=(str:string) =>{
     return str
       .toLowerCase()
