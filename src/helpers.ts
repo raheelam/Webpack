@@ -25,6 +25,10 @@ static removeWhitespace=(inputStr: string): string=> {
     return inputStr.replace(/\s/g, '');
 }
 
+static lengthWithoutSpaces=(inputStr: string): number=> {
+    return inputStr.replace(/\s/g, '').length;
+}
+
 static limitTextWithDelimiter=(inputText: string, limit: number, delimiter: string): string=> {
     if (inputText.length <= limit) {
         // If the text is already within the limit, no changes needed
