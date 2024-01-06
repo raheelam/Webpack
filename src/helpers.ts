@@ -48,6 +48,11 @@ static reverseString=(inputStr: string): string=> {
     return inputStr.split('').reverse().join('');
 }
 
+static toCamelCase=(inputStr: string): string =>{
+    const words = inputStr.split('_');
+    return words[0] + words.slice(1).map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('');
+}
+
 static makeTitleCase=(str:string) =>{
     return str
       .toLowerCase()
