@@ -40,6 +40,10 @@ static limitTextWithDelimiter=(inputText: string, limit: number, delimiter: stri
     }
 }
 
+static replaceSubstring=(inputStr: string, oldSubstring: string, newSubstring: string): string =>{
+    return inputStr.split(oldSubstring).join(newSubstring);
+}
+
 static makeTitleCase=(str:string) =>{
     return str
       .toLowerCase()
