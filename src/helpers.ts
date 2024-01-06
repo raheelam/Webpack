@@ -44,6 +44,10 @@ static replaceSubstring=(inputStr: string, oldSubstring: string, newSubstring: s
     return inputStr.split(oldSubstring).join(newSubstring);
 }
 
+static reverseString=(inputStr: string): string=> {
+    return inputStr.split('').reverse().join('');
+}
+
 static makeTitleCase=(str:string) =>{
     return str
       .toLowerCase()
