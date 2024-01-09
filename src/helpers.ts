@@ -65,3 +65,7 @@ static makeTitleCase=(str:string) =>{
 const log=(message: string): void=> {
   console.log(message);
 }
+
+const deepClone=<T>(obj: T): T =>{
+  return JSON.parse(JSON.stringify(obj));
+}
