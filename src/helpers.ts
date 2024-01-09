@@ -61,3 +61,7 @@ static makeTitleCase=(str:string) =>{
       .join(' ');
   }
 }
+
+const log=(message: string): void=> {
+  console.log(message);
+}
