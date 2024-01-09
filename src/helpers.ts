@@ -69,3 +69,7 @@ export const log=(message: string): void=> {
 export const deepClone=<T>(obj: T): T =>{
   return JSON.parse(JSON.stringify(obj));
 }
+
+export const hasOwnProperty=(obj: object, prop: string): boolean=> {
+  return Object.prototype.hasOwnProperty.call(obj, prop);
+}
