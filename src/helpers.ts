@@ -91,3 +91,7 @@ export const parseDate=(dateString: string): Date =>{
   }
   return parsedDate;
 }
+
+export const isDefinedAndNotNull=(value: any): boolean=> {
+  return value !== undefined && value !== null;
+}
