@@ -83,3 +83,11 @@ export const addDaysToDate=(date: Date, days: number): Date =>{
   result.setDate(result.getDate() + days);
   return result;
 }
+
+export const parseDate=(dateString: string): Date =>{
+  const parsedDate = new Date(dateString);
+  if (isNaN(parsedDate.getTime())) {
+    throw new Error('Invalid date string');
+  }
+  return parsedDate;
+}
