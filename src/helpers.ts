@@ -95,3 +95,7 @@ export const parseDate=(dateString: string): Date =>{
 export const isDefinedAndNotNull=(value: any): boolean=> {
   return value !== undefined && value !== null;
 }
+
+export const  isEmptyObject=(obj: object): boolean=> {
+  return Object.keys(obj).length === 0;
+}
