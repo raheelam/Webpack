@@ -77,3 +77,9 @@ export const hasOwnProperty=(obj: object, prop: string): boolean=> {
 export const getRandomNumber=(min: number, max: number): number =>{
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+export const addDaysToDate=(date: Date, days: number): Date =>{
+  const result = new Date(date);
+  result.setDate(result.getDate() + days);
+  return result;
+}
