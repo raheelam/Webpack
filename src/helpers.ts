@@ -122,3 +122,8 @@ export function throttle(func: Function, limit: number): (...args: any[]) => voi
 export const isArray=(value: any): value is any[]=> {
   return Array.isArray(value);
 }
+
+export const isValidEmail=(email: string): boolean =>{
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
