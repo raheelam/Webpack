@@ -99,3 +99,11 @@ export const isDefinedAndNotNull=(value: any): boolean=> {
 export const  isEmptyObject=(obj: object): boolean=> {
   return Object.keys(obj).length === 0;
 }
+
+export function debounce(func: Function, delay: number): (...args: any[]) => void {
+  let timeoutId: NodeJS.Timeout;
+  return (...args: any[]): void => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => func(...args), delay);
+  };
+}
