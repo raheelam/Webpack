@@ -118,3 +118,7 @@ export function throttle(func: Function, limit: number): (...args: any[]) => voi
     }
   };
 }
+
+export const isArray=(value: any): value is any[]=> {
+  return Array.isArray(value);
+}
