@@ -107,3 +107,14 @@ export function debounce(func: Function, delay: number): (...args: any[]) => voi
     timeoutId = setTimeout(() => func(...args), delay);
   };
 }
+
+export function throttle(func: Function, limit: number): (...args: any[]) => void {
+  let inThrottle: boolean = false;
+  return (...args: any[]): void => {
+    if (!inThrottle) {
+      func(...args);
+      inThrottle = true;
+      setTimeout(() => (inThrottle = false), limit);
+    }
+  };
+}
