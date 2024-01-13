@@ -138,3 +138,12 @@ export const objectToQueryString=(params: Record<string, string | number>): stri
     .join('&');
 }
 
+export const  isValidUrl=(url: string): boolean=> {
+  try {
+    new URL(url);
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
+
