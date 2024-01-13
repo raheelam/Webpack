@@ -131,3 +131,10 @@ export const isValidEmail=(email: string): boolean =>{
 export const removeDuplicates=<T>(array: T[]): T[] =>{
   return [...new Set(array)];
 }
+
+export const objectToQueryString=(params: Record<string, string | number>): string =>{
+  return Object.entries(params)
+    .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+    .join('&');
+}
+
