@@ -155,7 +155,7 @@ export const isAlphanumeric=(str: string): boolean =>{
   return /^[a-zA-Z0-9]+$/.test(str);
 }
 
-const generateUniqueId=(): string =>{
+export const generateUniqueId=(): string =>{
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
     const r = (Math.random() * 16) | 0;
     const v = c === 'x' ? r : (r & 0x3) | 0x8;
