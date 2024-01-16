@@ -175,3 +175,7 @@ export const millisecondsToTime=(duration: number): string=> {
 export const arrayToObject=<T>(array: [string, T][]): Record<string, T> =>{
   return Object.fromEntries(array);
 }
+
+const isObject=(value: any): value is object =>{
+  return typeof value === 'object' && value !== null;
+}
