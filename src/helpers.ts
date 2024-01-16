@@ -179,3 +179,21 @@ export const arrayToObject=<T>(array: [string, T][]): Record<string, T> =>{
 export const isObject=(value: any): value is object =>{
   return typeof value === 'object' && value !== null;
 }
+
+export const  base64ToBlob=(base64String: string, mimeType: string): Blob=> {
+  const byteCharacters = atob(base64String);
+  const byteArrays: Uint8Array[] = [];
+
+  for (let offset = 0; offset < byteCharacters.length; offset += 512) {
+    const chunk = byteCharacters.slice(offset, offset + 512);
+    const byteNumbers = new Array(chunk.length);
+
+    for (let i = 0; i < chunk.length; i++) {
+      byteNumbers[i] = chunk.charCodeAt(i);
+    }
+
+    byteArrays.push(new Uint8Array(byteNumbers));
+  }
+
+  return new Blob(byteArrays, { type: mimeType });
+}
