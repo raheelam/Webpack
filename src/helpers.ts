@@ -176,6 +176,6 @@ export const arrayToObject=<T>(array: [string, T][]): Record<string, T> =>{
   return Object.fromEntries(array);
 }
 
-const isObject=(value: any): value is object =>{
+export const isObject=(value: any): value is object =>{
   return typeof value === 'object' && value !== null;
 }
