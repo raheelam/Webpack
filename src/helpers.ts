@@ -207,3 +207,7 @@ export const roundToDecimalPlaces=(value: number, decimalPlaces: number): number
   const multiplier = 10 ** decimalPlaces;
   return Math.round(value * multiplier) / multiplier;
 }
+
+export const take=<T>(array: T[], n: number): T[]=> {
+  return array.slice(0, n);
+}
