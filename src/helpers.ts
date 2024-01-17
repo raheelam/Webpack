@@ -202,3 +202,8 @@ export const  isToday=(date: Date): boolean=> {
   const today = new Date();
   return date.getDate() === today.getDate() && date.getMonth() === today.getMonth() && date.getFullYear() === today.getFullYear();
 }
+
+export const roundToDecimalPlaces=(value: number, decimalPlaces: number): number =>{
+  const multiplier = 10 ** decimalPlaces;
+  return Math.round(value * multiplier) / multiplier;
+}
