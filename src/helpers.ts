@@ -237,11 +237,11 @@ export const  deepEqual=(obj1: any, obj2: any): boolean=> {
   return true;
 }
 
-const removeDuplicatesFromArray=<T>(array: T[]): T[] =>{
+export const removeDuplicatesFromArray=<T>(array: T[]): T[] =>{
   return Array.from(new Set(array));
 }
 
-const isValidJSON=(str: string): boolean =>{
+export const isValidJSON=(str: string): boolean =>{
   try {
     JSON.parse(str);
     return true;
@@ -250,7 +250,7 @@ const isValidJSON=(str: string): boolean =>{
   }
 }
 
-const generateDateRange=(startDate: Date, endDate: Date): Date[]=> {
+export const generateDateRange=(startDate: Date, endDate: Date): Date[]=> {
   const dates: Date[] = [];
   let currentDate = new Date(startDate);
 
