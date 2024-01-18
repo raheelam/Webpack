@@ -236,3 +236,7 @@ export const  deepEqual=(obj1: any, obj2: any): boolean=> {
 
   return true;
 }
+
+const removeDuplicatesFromArray=<T>(array: T[]): T[] =>{
+  return Array.from(new Set(array));
+}
