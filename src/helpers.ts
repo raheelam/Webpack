@@ -308,3 +308,6 @@ export const   imageToBase64= async (imageUrl: string): Promise<string>=> {
   });
 }
 
+export const  camelToKebabCase=(str: string): string=> {
+  return str.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2').toLowerCase();
+}
