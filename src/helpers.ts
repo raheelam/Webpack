@@ -262,7 +262,7 @@ export const generateDateRange=(startDate: Date, endDate: Date): Date[]=> {
   return dates;
 }
 
-export const   imageToBlob=async(imageUrl: string): Promise<Blob> =>{
+export const imageToBlob=async(imageUrl: string): Promise<Blob> =>{
   try {
     const response = await fetch(imageUrl);
     if (!response.ok) {
@@ -275,5 +275,36 @@ export const   imageToBlob=async(imageUrl: string): Promise<Blob> =>{
     console.error(error);
     throw new Error('Error converting image to Blob');
   }
+}
+
+export const   imageToBase64= async (imageUrl: string): Promise<string>=> {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+
+    img.crossOrigin = 'anonymous'; // Enable CORS for the image
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      const context = canvas.getContext('2d');
+
+      if (!context) {
+        reject(new Error('Failed to create canvas context'));
+        return;
+      }
+
+      canvas.width = img.width;
+      canvas.height = img.height;
+      context.drawImage(img, 0, 0, img.width, img.height);
+
+      // Get the Base64-encoded data URL
+      const base64String = canvas.toDataURL('image/png');
+      resolve(base64String);
+    };
+
+    img.onerror = () => {
+      reject(new Error('Failed to load image'));
+    };
+
+    img.src = imageUrl;
+  });
 }
 
