@@ -261,3 +261,19 @@ export const generateDateRange=(startDate: Date, endDate: Date): Date[]=> {
 
   return dates;
 }
+
+export const   imageToBlob=async(imageUrl: string): Promise<Blob> =>{
+  try {
+    const response = await fetch(imageUrl);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch image: ${response.statusText}`);
+    }
+
+    const blob = await response.blob();
+    return blob;
+  } catch (error) {
+    console.error(error);
+    throw new Error('Error converting image to Blob');
+  }
+}
+
