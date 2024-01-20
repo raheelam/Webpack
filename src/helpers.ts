@@ -317,3 +317,24 @@ export const reactStyleToCss=(styleObject): string =>{
     .map(([property, value]) => `${camelToKebabCase(property)}: ${value};`)
     .join('\n');
 }
+
+export const makeGetRequest=(url, headers = {})=> {
+  // Using the fetch API to make a GET request
+  return fetch(url, {
+    method: 'GET',
+    headers: new Headers(headers),
+  })
+    .then(response => {
+      // Check if the request was successful (status code 200-299)
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      // Parse the JSON in the response
+      return response.json();
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      throw error; // Re-throw the error for further handling if needed
+    });
+}
