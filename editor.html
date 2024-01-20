@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Code Editor</title>
+  <link rel="stylesheet" href="https://unpkg.com/codemirror@5.62.0/lib/codemirror.css">
+  <script src="https://unpkg.com/codemirror@5.62.0/lib/codemirror.js"></script>
+  <script src="https://unpkg.com/codemirror@5.62.0/mode/javascript/javascript.js"></script>
+  <script src="https://unpkg.com/codemirror@5.62.0/theme/dracula.css"></script>
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #editor {
+      flex: 1;
+      height: 100%;
+    }
+
+    #output {
+      flex: 1;
+      height: 100%;
+      border-left: 1px solid #ccc;
+      padding: 10px;
+      white-space: pre-wrap;
+      overflow-y: auto;
+      background-color: #2d2d2d;
+      color: #ffffff;
+      font-family: 'Courier New', monospace;
+    }
+
+    .log {
+      color: #4caf50; /* Green for log messages */
+    }
+
+    .error {
+      color: #f44336; /* Red for error messages */
+    }
+
+    .warning {
+      color: #ff9800; /* Orange for warning messages */
+    }
+  </style>
+</head>
+<body>
+  <div id="editor"></div>
+  <div id="output"></div>
+
+  <script>
+    const editor = CodeMirror(document.getElementById('editor'), {
+      mode: 'javascript',
+      lineNumbers: true,
+      theme: 'dracula',
+    });
+
+    const output = document.getElementById('output');
+
+    // Override console.log to redirect output to the #output div with formatting
+    console.log = function(message) {
+      output.innerHTML += `<div class="log">${message}</div>`;
+    };
+
+    // Override console.error for better formatting
+    console.error = function(message) {
+      output.innerHTML += `<div class="error">${message}</div>`;
+    };
+
+    // Override console.warn for better formatting
+    console.warn = function(message) {
+      output.innerHTML += `<div class="warning">${message}</div>`;
+    };
+
+    function runCode() {
+      try {
+        // Clear previous output
+        output.innerHTML = '';
+
+        const code = editor.getValue();
+        const transpiledCode = Babel.transform(code, { presets: ['es2015', 'react'] }).code;
+
+        // For TypeScript support, you can use the following:
+        // const transpiledCode = ts.transpileModule(code, { compilerOptions: { target: ts.ScriptTarget.ESNext } }).outputText;
+
+        // Execute transpiled code
+        eval(transpiledCode);
+      } catch (error) {
+        console.error(error);
+        console.error(`Error: ${error.message}`);
+      }
+    }
+
+    editor.on('changes', runCode);
+    runCode(); // Initial run
+
+  </script>
+</body>
+</html>
