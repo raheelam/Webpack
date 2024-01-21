@@ -352,3 +352,12 @@ export const isInViewport=(element)=> {
     rect.right <= (window.innerWidth || document.documentElement.clientWidth)
   );
 }
+
+export const parseUrlParameters=(url)=> {
+  const params = new URLSearchParams(new URL(url).search);
+  const result = {};
+  for (const [key, value] of params) {
+    result[key] = value;
+  }
+  return result;
+}
