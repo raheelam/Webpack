@@ -361,3 +361,9 @@ export const parseUrlParameters=(url)=> {
   }
   return result;
 }
+
+export const sortNumbers=(numbers, ascending = true)=> {
+  // Use the Array.sort() method with a compare function
+  numbers.sort((a, b) => (ascending ? a - b : b - a));
+  return numbers;
+}
