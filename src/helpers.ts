@@ -338,3 +338,7 @@ export const makeGetRequest=(url, headers = {})=> {
       throw error; // Re-throw the error for further handling if needed
     });
 }
+
+export const uniqueArrayValues=(array)=> {
+  return Array.from(new Set(array));
+}
