@@ -380,3 +380,10 @@ export const  groupBy=(array, key) =>{
     return acc;
   }, {});
 }
+
+export const findMaxMin=(array) =>{
+  return {
+    max: Math.max(...array),
+    min: Math.min(...array),
+  };
+}
