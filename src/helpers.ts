@@ -367,3 +367,7 @@ export const sortNumbers=(numbers, ascending = true)=> {
   numbers.sort((a, b) => (ascending ? a - b : b - a));
   return numbers;
 }
+
+function sortObjectsByNumericProperty(objects, property, ascending = true) {
+  return objects.sort((a, b) => (ascending ? a[property] - b[property] : b[property] - a[property]));
+}
