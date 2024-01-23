@@ -371,3 +371,12 @@ export const sortNumbers=(numbers, ascending = true)=> {
 function sortObjectsByNumericProperty(objects, property, ascending = true) {
   return objects.sort((a, b) => (ascending ? a[property] - b[property] : b[property] - a[property]));
 }
+
+export const  groupBy=(array, key) =>{
+  return array.reduce((acc, obj) => {
+    const property = obj[key];
+    acc[property] = acc[property] || [];
+    acc[property].push(obj);
+    return acc;
+  }, {});
+}
