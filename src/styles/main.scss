@@ -1,16 +1,13 @@
 $default_margin: 0;
-
 @mixin reset {
   margin: $default_margin;
   padding: 0;
 }
-
 body{
     @include reset;
     background:green;
     color: white;
-    font-size: 1rem;
-    
+    font-size: 1rem;   
 }
 
 
