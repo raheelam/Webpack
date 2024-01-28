@@ -1,5 +1,7 @@
+$default_margin: 0;
+
 @mixin reset {
-  margin: 0;
+  margin: $default_margin;
   padding: 0;
 }
 
