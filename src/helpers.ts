@@ -387,3 +387,8 @@ export const findMaxMin=(array) =>{
     min: Math.min(...array),
   };
 }
+
+const fetchWrapper = (url, options)=>{
+  //add custom logic
+  return fetch(url, options)
+}
