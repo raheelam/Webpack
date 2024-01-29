@@ -388,7 +388,7 @@ export const findMaxMin=(array) =>{
   };
 }
 
-const fetchWrapper = (url, options)=>{
+export const fetchWrapper = (url, options)=>{
   //add custom logic
   return fetch(url, options)
 }
