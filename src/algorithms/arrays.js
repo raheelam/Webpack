@@ -3,7 +3,7 @@
 
 const findValuesThatMakeUpTarget = (numArray, target) => {
   let missingNumber = 0;
-  const valuesArray = [];
+  //   const valuesArray = [];
   const arrayAsObject = numArray.reduce((accumulator, value, index) => ({
     ...accumulator,
     [value]: [value, index],
@@ -14,11 +14,12 @@ const findValuesThatMakeUpTarget = (numArray, target) => {
     missingNumber = target - value;
 
     if (arrayAsObject[missingNumber]) {
-      valuesArray.push([arrayAsObject[missingNumber][1], Number(index)]);
+      return [arrayAsObject[missingNumber][1], Number(index)];
+      //   valuesArray.push([arrayAsObject[missingNumber][1], Number(index)]);
     }
   }
 
-  return valuesArray;
+  //   return valuesArray;
 };
 
 console.log(findValuesThatMakeUpTarget([1, 2, 3, 4, 5, 6, 7], 11));
