@@ -23,6 +23,7 @@ const findValuesThatMakeUpTarget = (numArray, target) => {
 };
 
 const findTheSubArrayWithLargestSum = (numArray) => {
+  //function for finding sub array with largest sum
   let maxSum = 0;
   let maxSumIndex;
   for (let index in numArray) {
