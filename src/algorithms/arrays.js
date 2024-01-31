@@ -61,6 +61,20 @@ const sortObjectsByColorsInGivenOrder = (
   return sortedList;
 };
 
+const findMaxProfitBetweenTwoDays = (
+  prices = [1, 2, 3, 4, 1, 3, 4, 55, 8, 2]
+) => {
+  prices.sort((a, b) => a - b);
+  const maxProfit = prices[0] + prices.at(-1);
+  if (maxProfit < 0) {
+    return 0;
+  } else {
+    return maxProfit;
+  }
+};
+
+console.log(findMaxProfitBetweenTwoDays());
+
 console.log(
   sortObjectsByColorsInGivenOrder([
     { color: 'white', type: 'blouse' },
