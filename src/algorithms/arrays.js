@@ -38,6 +38,39 @@ const findTheSubArrayWithLargestSum = (numArray) => {
   return { maxSumIndex, maxSum };
 };
 
+const sortObjectsByColorsInGivenOrder = (
+  list,
+  order = ['red', 'white', 'blue']
+) => {
+  const colorsObj = {};
+  const sortedList = [];
+  for (let color of order) {
+    colorsObj[color] = [];
+  }
+  /* Sorts an array of objects by color property in given order */
+  for (let obj of list) {
+    if (colorsObj) {
+      colorsObj[obj.color].push(obj);
+    }
+  }
+
+  for (let color of order) {
+    sortedList.push(...colorsObj[color]);
+  }
+
+  return sortedList;
+};
+
+console.log(
+  sortObjectsByColorsInGivenOrder([
+    { color: 'white', type: 'blouse' },
+    { color: 'blue', type: 'dress' },
+    { color: 'red', type: 'cap' },
+    { color: 'white', type: 'shirt' },
+    { color: 'blue', type: 'trouser' },
+    { color: 'red', type: 'dress' },
+  ])
+);
 console.log(findValuesThatMakeUpTarget([1, 2, 3, 4, 5, 6, 7], 11));
 console.log(
   findTheSubArrayWithLargestSum([
