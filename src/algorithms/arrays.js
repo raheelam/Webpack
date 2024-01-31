@@ -64,12 +64,18 @@ const sortObjectsByColorsInGivenOrder = (
 const findMaxProfitBetweenTwoDays = (
   prices = [1, 2, 3, 4, 1, 3, 4, 55, 8, 2]
 ) => {
-  prices.sort((a, b) => a - b);
-  const maxProfit = prices[0] + prices.at(-1);
+  const pricesCopy = [...prices];
+  pricesCopy.sort((a, b) => a - b);
+  const buyValue = pricesCopy[0];
+  const sellValue = pricesCopy.at(-1);
+  const maxProfit = sellValue - buyValue;
   if (maxProfit < 0) {
     return 0;
   } else {
-    return maxProfit;
+    //to return with the days lets assume the Indices are the days
+    const buyDay = prices.indexOf(buyValue);
+    const SellDay = prices.indexOf(sellValue);
+    return { buyDay, SellDay, buyValue, sellValue, maxProfit };
   }
 };
 
