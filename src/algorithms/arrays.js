@@ -82,6 +82,7 @@ const findMaxProfitBetweenTwoDays = (
 };
 
 const reverseString = (listOfChar) => {
+  // reverse string in array of chars
   const reversedListOfChar = listOfChar.reverse();
   return reversedListOfChar.join('');
 };
