@@ -86,6 +86,29 @@ const reverseString = (listOfChar) => {
   const reversedListOfChar = listOfChar.reverse();
   return reversedListOfChar.join('');
 };
+
+const sortCharsInDecreasingOrderBasedOnFrequency = (
+  str = 'zlazabzlzdfzljklz'
+) => {
+  const lettersAndFrequencies = {};
+  for (let i = 0; i < str.length; i++) {
+    if (lettersAndFrequencies[str[i]]) {
+      lettersAndFrequencies[str[i]] += str[i];
+    } else {
+      lettersAndFrequencies[str[i]] = str[i];
+    }
+  }
+
+  const arrayOfLettersAndFrequencies = Object.values(lettersAndFrequencies);
+
+  const sortedArrayOfLettersAndFrequencies = arrayOfLettersAndFrequencies.sort(
+    (a, b) => a.length - b.length
+  );
+
+  return sortedArrayOfLettersAndFrequencies.join('');
+};
+
+console.log(sortCharsInDecreasingOrderBasedOnFrequency());
 console.log(findMaxProfitBetweenTwoDays());
 
 console.log(
