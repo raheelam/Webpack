@@ -99,12 +99,9 @@ const sortCharsInDecreasingOrderBasedOnFrequency = (
     }
   }
   const arrayOfLettersAndFrequencies = Object.values(lettersAndFrequencies);
+  arrayOfLettersAndFrequencies.sort((a, b) => a.length - b.length);
 
-  const sortedArrayOfLettersAndFrequencies = arrayOfLettersAndFrequencies.sort(
-    (a, b) => a.length - b.length
-  );
-
-  return sortedArrayOfLettersAndFrequencies.join('');
+  return arrayOfLettersAndFrequencies.join('');
 };
 
 console.log(sortCharsInDecreasingOrderBasedOnFrequency());
