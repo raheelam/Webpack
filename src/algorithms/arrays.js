@@ -91,14 +91,13 @@ const sortCharsInDecreasingOrderBasedOnFrequency = (
   str = 'zlazabzlzdfzljklz'
 ) => {
   const lettersAndFrequencies = {};
-  for (let i = 0; i < str.length; i++) {
-    if (lettersAndFrequencies[str[i]]) {
-      lettersAndFrequencies[str[i]] += str[i];
+  for (let character of str) {
+    if (lettersAndFrequencies[character]) {
+      lettersAndFrequencies[character] += character;
     } else {
-      lettersAndFrequencies[str[i]] = str[i];
+      lettersAndFrequencies[character] = character;
     }
   }
-
   const arrayOfLettersAndFrequencies = Object.values(lettersAndFrequencies);
 
   const sortedArrayOfLettersAndFrequencies = arrayOfLettersAndFrequencies.sort(
