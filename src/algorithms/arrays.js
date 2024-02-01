@@ -90,6 +90,10 @@ const reverseString = (listOfChar) => {
 const sortCharsInDecreasingOrderBasedOnFrequency = (
   str = 'zlazabzlzdfzljklz'
 ) => {
+  // adds algorithm for sorting
+  // characters in a string based on their frequency
+  // in decreasing order
+
   const lettersAndFrequencies = {};
   for (let character of str) {
     if (lettersAndFrequencies[character]) {
