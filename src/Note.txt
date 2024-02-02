@@ -1,3 +1,5 @@
 closure: closure is a function along with it's lexical scope. 
 
 An execution context is created everytime a function is called. 
+
+let, const are block scoped 
