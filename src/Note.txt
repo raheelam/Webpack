@@ -4,4 +4,5 @@ An execution context is created everytime a function is called.
 
 let, const are block scoped 
 
-Temporal deadzone is why variables declared with const or let are firstly not defined. While var is put in the window(this) object, let and var are put in another space in memory
+Temporal deadzone is why variables declared with const or let are firstly not defined. While var is put in the window(this) object, let and var are put in another space in memory(object) called script. You cannot access anything from script without it being initialized first.
+
